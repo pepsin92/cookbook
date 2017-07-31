@@ -1,0 +1,34 @@
+Install requirements using pip:
+
+`$ pip install -r requirements.txt`
+
+Run the server using:
+
+`$ python3 manage.py runserver`
+
+# What is this?
+
+A browser-based recipe book. It is using flask in combination with sqlite3 and simple html templating.
+
+# How should i run this?
+
+Firstly, we need to scrape some data. In folder `/parsers`, we provided a parser for a web page donnahay.com.au, as well as a cusom JSON-based format.
+
+Simply run `python donnahay.py` to populate the database.
+
+Some development values are already provided in attached `.db` file.
+
+# What does it do?
+
+It allows the search by tags as well as adding new tags to existing recipes.
+
+# Resources
+
+For testing data, we used recipes from https://www.donnahay.com.au/
+
+## Documentation
+
+Flask: http://flask.pocoo.org/docs/0.12/
+HTML: https://www.w3schools.com/
+BeautifulSoup: https://www.crummy.com/software/BeautifulSoup/bs4/doc/
+

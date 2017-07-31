@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MegaCookbook 3000</title>
+</head>
+<body>
+{#<form action="/tagsearch" method="get">#}
+{#  Search by tag: <input type="text" name="term" />#}
+{#  <input type="submit" />#}
+{#</form>#}
+<h1>Recipe list</h1>
+
+<table border="1">
+  <tr>
+    <th>Recipe name</th>
+    <th>Tags</th>
+  </tr>
+  {% for recipe in recipes %}
+  <tr>
+      <td><a href="/recipe/{{ recipe["id"] }}">{{ recipe["name"] }}</a></td>
+      <td>{% for tag in recipe["tags"] %}
+          <a href="/tag/{{ tag }}">{{ tag }}</a>
+          {% endfor %}
+      </td>
+  </tr>
+  {% endfor %}
+</table>
+
+</body>
+</html>

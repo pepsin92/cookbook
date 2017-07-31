@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MegaCookbook 3000</title>
+</head>
+<body style="padding-left: 10%; padding-right:10%; padding-top:50px;">
+<a href="/"><h2>Home</h2></a>
+<h1>{{recipe["name"]}}</h1>
+
+{% macro showlist(ingr) %}
+    <ul>
+        {% for i in ingr %}
+            <li>{{ i.name }}</li>
+        {% endfor %}
+    </ul>
+{% endmacro %}
+
+{% macro listtags(tags) %}
+    <ul>
+        {% for i in tags %}
+            <li><a href="/tag/{{ i.name }}">{{ i.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endmacro %}
+
+{% if recipe["ingredients"] %}
+    <h2>Ingredients</h2>
+    {{ showlist(recipe["ingredients"]) }}
+{% endif %}
+
+<h2>Recipe parts</h2>
+
+{% for part in recipe["parts"] %}
+    <h3>{{ part["name"] }}</h3>
+    <p>{{ part["body"] }}</p>
+{% endfor %}
+
+<h3>Tags</h3>
+{% if recipe["tags"] %}
+    {{ listtags(recipe["tags"]) }}
+{% endif %}
+<form id="tag_submit" method="post">
+    Add tag: <input type="text" name="add_tag">
+    <input type="submit">
+</form>
+
+
+{#<table border="1">#}
+{#  <tr>#}
+{#    <th>Recipe name</th>#}
+{#    <th>Tagss</th>#}
+{#  </tr>#}
+{#  {% for recipe in recipes %}#}
+{#  <tr>#}
+{#      <td><a href="/recipe/{{ recipe["id"] }}">{{ recipe["name"] }}</a></td>#}
+{#      <td>{% for tag in recipe["tags"] %}#}
+{#          <a href="/tag/{{ tag }}">{{ tag }}</a>#}
+{#          {% endfor %}#}
+{#      </td>#}
+{#  </tr>#}
+{#  {% endfor %}#}
+{#</table>#}
+
+</body>
+</html>

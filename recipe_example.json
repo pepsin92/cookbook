@@ -1,0 +1,27 @@
+{
+    "name":"Cookie",
+    "ingredients":[
+        {
+            "name":"chocolate",
+            "weight":"45g"
+        }
+    ],
+    "parts":[
+        {
+            "name":"Dough",
+            "ingredients":[
+                {
+                    "name":"sugar",
+                    "weight":"1 kg"
+                },
+                {
+                    "name":"milk",
+                    "volume":"1 fl.oz"
+                }
+            ],
+            "method":"Mix the ingredients and bake in the solar corona for 0.3 ms."
+        }
+    ],
+    "tags":["sweet", "quick", "stellar"],
+    "source":"Imagination"
+}
