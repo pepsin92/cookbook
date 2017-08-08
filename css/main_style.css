@@ -1,0 +1,255 @@
+div.content {
+	vertical-align: middle;
+}
+
+div.header h1 {
+	color: #4D5440; text-align: center; /*#cccccc*/
+}
+div.header h2 {
+	color: #879181; text-align: center; /*#ddccdd*/
+}
+
+
+div.nav-left {
+	background-color: #F3FAB4;
+	text-align: center;
+	float: left;
+	margin: 20px 30px 2px 200px;
+	/*padding: 0px 0px 20px 0px;*/
+	border-radius: 5px;
+}
+/*div.nav-left-a {
+	color: #cccccc;
+	background-color: #00994d;
+	font-size: 20px;
+	margin: 20px 30px 20px 30px;
+	padding: 7px 30px;
+	border-radius: 5px;
+	width: 150px;
+	max-width: 150px;
+	text-decoration: none;
+}*/
+div.nav-left ul {
+	margin: 0px;
+	padding: 0px;
+}
+
+div.nav-left li {
+	list-style-type: none;
+}
+
+div.nav-left a {
+    background-color: #00994d;
+    border: none;
+    color: #cccccc;
+    padding: 15px 32px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    margin: 10px 30px;
+    border-radius: 5px;
+    max-width: 200px;
+    min-width: 200px;
+    /*cursor: pointer;*/
+/*	color: #cccccc;
+	background-color: #00994d;
+	font-size: 20px;
+	padding: 5px 20px 5px 20px;
+	border-radius: 5px; 
+	width: 150px;
+	max-width: 150px;
+	text-decoration: none;
+*/}
+div.nav-left h3 {
+	color: #FFFFFF;
+	background-color: #99cc00;
+	padding: 5px;
+}
+
+div.small-list{
+	text-align: left;
+}
+
+div.small-list ul{
+	
+}
+
+div.small-list a {
+	background-color: #cccccc;
+	border: none;
+	color: #00994d;
+	padding: 9px 18px;
+	text-align: left;
+	font-weight: bold;
+	text-decoration: none;
+	display: inline-block;
+    	font-size: 20px;
+    	margin: 5px 30px;
+    	border-radius: 5px;
+    	max-width: 170px;
+    	min-width: 170px;
+}
+
+/*RIGHT NAV*/
+
+div.nav-right {
+	background-color: #F3FAB4;
+	/*vertical-align: left;*/
+	text-align: center;
+	float: right;
+	margin: 20px 200px 2px 30px;
+	/*padding: 0px 0px 20px 0px;*/
+	border-radius: 5px;
+}
+div.nav-right ul {
+	margin: 0px;
+	padding: 0px;
+}
+
+div.nav-right li {
+	list-style-type: none;
+}
+div.nav-right a {
+	background-color: #00994d;
+    border: none;
+    color: #cccccc;
+    padding: 15px 32px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 10px 30px;
+    border-radius: 5px;
+    max-width: 200px;
+    min-width: 200px;
+}
+div.nav-right h3 {
+	color: #FFFFFF;
+	background-color: #99cc00;
+	padding: 5px;
+}
+
+
+
+/*SECTION*/
+
+div.section {
+	background-color: #F3FAB4;
+	/*color: #000000;*/
+	margin: 40px 550px 2px 550px;
+	padding: 75px;
+	padding-top: 0px;
+	text-align: justify;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	/*float: left;*/
+	vertical-align: middle;
+}
+
+div.section p {
+	color: #4D5440;
+	background-color: #F3FAB4;
+	text-align: justify;
+	font-size: 20px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+div.section img {
+	margin: 10px 100px 2px 100px;
+	display:block;
+	width:70%;
+	height:70%;
+}
+
+div.section h1 {
+	color: #FFFFFF;
+	background-color: #00994d;
+	padding: 25px;
+	margin-left: -75px;
+	margin-right: -75px;
+	text-align: justify;
+	font-weight: bold;
+	text-decoration: underline;
+	font-size: 25px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+div.section h2 {
+	color: #FFFFFF;
+	background-color: #00994d;
+	text-align: justify;
+	font-weight: normal;
+	font-size: 25px;
+	padding-left: 9px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+div.section h3 {
+	color: #4D5440;
+	background-color: #F3FAB4;
+	display: block;
+	font-size: 20px;
+	-webkit-margin-before: 1em;
+	-webkit-margin-after: 1em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	font-weight: bold;
+}
+
+div.section td {
+    padding: 5px;
+}
+
+div.section th {
+	color: #FFFFFF;
+	background-color: #00994d;
+	font-weight: bold;
+	text-align: justify;
+	font-size: 25px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+div.section a {
+	color: #4D5440;
+	background-color: #F3FAB4;
+	font-weight: bold;
+	text-align: justify;
+	font-size: 20px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+div.section ul {
+	color: #4D5440;
+	background-color: #F3FAB4;
+	text-align: justify;
+	font-size: 20px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+div.footer {
+	color: #4D5440;
+	vertical-align: bottom;
+}
+
+
+/*h1 {color: #cccccc; text-align: center;}*/
+/*h2 {color: #ddccdd; text-align: center;}*/
+h3 {color: #FFFFFF; background-color:  #00994d; }
+body {color: #000000; background-color: #E9EDBB; /*background-image: url("leaf_pattern.svg"); background-repeat: repeat;*/}/*0E1578*/
+/*a {line-height: 50px; margin: 5px; background: #FFFFFF; padding: 3px 20px; border: outset 5px; font-weight: bold;}*/
+/*a:hover{background:#FFFFCC; padding: 3px 20px;}*/
+/*a:visited{color: #5599CC;}*/
+/*td {text-align: justify; vertical-align: top;}*/
+
+/*<a href='http://www.freepik.com/free-vector/green-leaves_793570.htm'>Designed by Freepik</a> */
