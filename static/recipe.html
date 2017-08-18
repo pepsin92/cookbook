@@ -3,64 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <title>MegaCookbook 3000</title>
+    <link rel="stylesheet" type="text/css" href="/css/main_style.css">
 </head>
-<body style="padding-left: 10%; padding-right:10%; padding-top:50px;">
-<a href="/"><h2>Home</h2></a>
-<h1>{{recipe["name"]}}</h1>
 
-{% macro showlist(ingr) %}
+<div class="header">
+    <h1>The CookBook 3000</h1>
+</div>
+
+<div class="nav-left">
     <ul>
-        {% for i in ingr %}
-            <li>{{ i.name }}</li>
-        {% endfor %}
+        <li><a href="/">Home</a></li>
     </ul>
-{% endmacro %}
+</div>
 
-{% macro listtags(tags) %}
-    <ul>
-        {% for i in tags %}
-            <li><a href="/tag/{{ i.name }}">{{ i.name }}</a></li>
-        {% endfor %}
-    </ul>
-{% endmacro %}
+<div class="section">
+    <h1>{{recipe["name"]}}</h1>
 
-{% if recipe["ingredients"] %}
-    <h2>Ingredients</h2>
-    {{ showlist(recipe["ingredients"]) }}
-{% endif %}
+    {% macro showlist(ingr) %}
+        <ul>
+            {% for i in ingr %}
+                <li>{{ i.name }}</li>
+            {% endfor %}
+        </ul>
+    {% endmacro %}
 
-<h2>Recipe parts</h2>
+    {% macro listtags(tags) %}
+        <ul>
+            {% for i in tags %}
+                <li><a href="/tag/{{ i.name }}">{{ i.name }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endmacro %}
 
-{% for part in recipe["parts"] %}
-    <h3>{{ part["name"] }}</h3>
-    <p>{{ part["body"] }}</p>
-{% endfor %}
+    {% if recipe["ingredients"] %}
+        <h2>Ingredients</h2>
+        {{ showlist(recipe["ingredients"]) }}
+    {% endif %}
 
-<h3>Tags</h3>
-{% if recipe["tags"] %}
-    {{ listtags(recipe["tags"]) }}
-{% endif %}
-<form id="tag_submit" method="post">
-    Add tag: <input type="text" name="add_tag">
-    <input type="submit">
-</form>
+    <h2>Instructions</h2>
+
+    {% for part in recipe["parts"] %}
+        <h3>{{ part["name"] }}</h3>
+        <p>{{ part["body"] }}</p>
+    {% endfor %}
+
+    <h2>Tags</h2>
+    {% if recipe["tags"] %}
+        {{ listtags(recipe["tags"]) }}
+    {% endif %}
+    <form id="tag_submit" method="post">
+        Add tag: <input type="text" name="add_tag">
+        <input type="submit">
+    </form>
 
 
-{#<table border="1">#}
-{#  <tr>#}
-{#    <th>Recipe name</th>#}
-{#    <th>Tagss</th>#}
-{#  </tr>#}
-{#  {% for recipe in recipes %}#}
-{#  <tr>#}
-{#      <td><a href="/recipe/{{ recipe["id"] }}">{{ recipe["name"] }}</a></td>#}
-{#      <td>{% for tag in recipe["tags"] %}#}
-{#          <a href="/tag/{{ tag }}">{{ tag }}</a>#}
-{#          {% endfor %}#}
-{#      </td>#}
-{#  </tr>#}
-{#  {% endfor %}#}
-{#</table>#}
-
+    {#<table border="1">#}
+    {#  <tr>#}
+    {#    <th>Recipe name</th>#}
+    {#    <th>Tagss</th>#}
+    {#  </tr>#}
+    {#  {% for recipe in recipes %}#}
+    {#  <tr>#}
+    {#      <td><a href="/recipe/{{ recipe["id"] }}">{{ recipe["name"] }}</a></td>#}
+    {#      <td>{% for tag in recipe["tags"] %}#}
+    {#          <a href="/tag/{{ tag }}">{{ tag }}</a>#}
+    {#          {% endfor %}#}
+    {#      </td>#}
+    {#  </tr>#}
+    {#  {% endfor %}#}
+    {#</table>#}
+</div>
 </body>
 </html>

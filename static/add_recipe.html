@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MegaCookbook 3000</title>
+    <link rel="stylesheet" type="text/css" href="/css/main_style.css">
+    <script type="text/javascript" src="jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="add_recipe.js"></script>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>The CookBook 3000</h1>
+    </div>
+
+    <div class="nav-left">
+        <ul>
+            <li><a href="/">Home</a></li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h1>Add a new recipe</h1>
+    </div>
+
+
+    <input type='button' value='Add ingredient' id='addIngredientButton'>
+    <input type='button' value='Remove ingredient' id='removeIngredientButton'>
+
+    <div id='TextBoxesIngredientGroup'>
+    	<div id="TextBoxIngredientDiv1">
+           <label>Ingredient #1 : </label><input type="textbox" name="ingredient' + counterIngredient + '" id="ingredient1" value="" >
+          <label>Amount : </label><input type="text" name="amount' + counterIngredient + '" id="amount1" value="" >
+           <label>Unit : </label><input type="text" name="unit' + counterIngredient + '" id="unit1" value="" >
+       </div>
+    </div>
+
+    <input type='button' value='Add new step' id='addInstructionButton'>
+    <input type='button' value='Remove step' id='removeInstructionButton'>
+
+    <div id='TextBoxesGroupInstruction'>
+    	<div id="TextBoxDivInstruction1">
+
+            <label>Step #1 : </label><input type="textbox" name="step' + counterInstruction + '" id="step1" value="" >
+        </div>
+    </div>
+
+    <input type='button' value='Sumbit Recipe' id='submitRecipe'>
+
+</body>
+</html>
