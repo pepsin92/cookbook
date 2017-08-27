@@ -76,10 +76,6 @@ def teardown_request(exception):
 def index():
     return render_template('index.html', recipes=get_recipes())
 
-@app.route('/css/<cssfile>', methods=['GET'])
-def css(cssfile):
-    return Response(open('css/' + cssfile, 'r').read(), mimetype="text/css")
-
 @app.route('/tagsearch/', methods=['GET'])
 def tagsearch():
     print('hi')
