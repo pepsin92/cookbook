@@ -57,7 +57,7 @@ div.nav-left a {
 	background-color: #00994d;
 	font-size: 20px;
 	padding: 5px 20px 5px 20px;
-	border-radius: 5px; 
+	border-radius: 5px;
 	width: 150px;
 	max-width: 150px;
 	text-decoration: none;
@@ -73,7 +73,7 @@ div.small-list{
 }
 
 div.small-list ul{
-	
+
 }
 
 div.small-list a {
@@ -253,3 +253,7 @@ body {color: #000000; background-color: #E9EDBB; /*background-image: url("leaf_p
 /*td {text-align: justify; vertical-align: top;}*/
 
 /*<a href='http://www.freepik.com/free-vector/green-leaves_793570.htm'>Designed by Freepik</a> */
+
+input[type=textbox] {
+	 width: 50px;
+}
