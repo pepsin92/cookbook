@@ -1,6 +1,9 @@
 from flask import request, render_template, g, Response
 from index import app
 import sqlite3
+import re
+import os
+import errno
 
 
 def connect_db():
@@ -97,63 +100,98 @@ def recipe(rid):
     recipe = get_recipe_by_id(rid)
     return render_template('recipe.html', recipe=recipe)
 
+@app.route('/add_recipe', methods=['POST'])
+def add_recipe():
+    #get recipe properties DONE
+    recipe_name = request.form['recipeName']
+    recipe_time = request.form['recipeTime']
+    recipe_serving_num = request.form['servingsNumber']
+    recipe_source = request.form['recipeSource']
+    #get recipe tags, format them
+    recipe_tags = [tag.strip() for tag in request.form['recipeTags'].split(',')]
+    #get a list of ingredients
+    ingredient_list = []
+    ingredient_id = 1
+    while ("ingredient" + str(ingredient_id)) in request.form:
+        #TODO: Add ingredient note property
+        ingredient_list.append([request.form["ingredient" + str(ingredient_id)], request.form["amount" + str(ingredient_id)], request.form["unit" + str(ingredient_id)]])
+        ingredient_id += 1
+    #print(ingredient_list)
+    #I could check whether you added any ingredients here, but screw it, if you
+    #want a recipe with no ingredients, then you can have it.
 
-# @app.route('/<path:path>', methods=['GET'])
-# def any_root_path(path):
-#     return render_template('index.html')
-#
-#
-# @app.route("/api/user", methods=["GET"])
-# @requires_auth
-# def get_user():
-#     return jsonify(result=g.current_user)
-#
-#
-# @app.route("/api/recipe", methods=["GET"])
-# def get_recipe():
-#     incoming = request.get_json()
-#     id = incoming["id"]
-#     recipe = Recipe(id=incoming.id)
-#
-#
-# @app.route("/api/create_user", methods=["POST"])
-# def create_user():
-#     incoming = request.get_json()
-#     user = User(
-#         email=incoming["email"],
-#         password=incoming["password"]
-#     )
-#     db.session.add(user)
-#
-#     try:
-#         db.session.commit()
-#     except IntegrityError:
-#         return jsonify(message="User with that email already exists"), 409
-#
-#     new_user = User.query.filter_by(email=incoming["email"]).first()
-#
-#     return jsonify(
-#         id=user.id,
-#         token=generate_token(new_user)
-#     )
-#
-#
-# @app.route("/api/get_token", methods=["POST"])
-# def get_token():
-#     incoming = request.get_json()
-#     user = User.get_user_with_email_and_password(incoming["email"], incoming["password"])
-#     if user:
-#         return jsonify(token=generate_token(user))
-#
-#     return jsonify(error=True), 403
-#
-#
-# @app.route("/api/is_token_valid", methods=["POST"])
-# def is_token_valid():
-#     incoming = request.get_json()
-#     is_valid = verify_token(incoming["token"])
-#
-#     if is_valid:
-#         return jsonify(token_is_valid=True)
-#     else:
-#         return jsonify(token_is_valid=False), 403
+    #get a list of steps
+    steps = []
+    step_id = 1
+    while ("step" + str(step_id)) in request.form:
+        steps.append(request.form["step" + str(step_id)])
+        step_id += 1
+    #print(steps)
+    #Ditto with the steps
+
+    #write recipe into a file
+
+    #making a folder
+    path = "standardized_recipes/" + str(recipe_name)
+    duplicated_recipe_id = 1
+    while True:
+        try:
+            os.makedirs(path)
+            break
+        except OSError as e:
+            if e.errno == errno.EEXIST:
+                duplicated_recipe_id += 1
+                recipe_name = request.form['recipeName'] + str(duplicated_recipe_id)
+                path = "standardized_recipes/" + recipe_name
+            else:
+                #TODO: return error message to html instead of terminal
+                print(e)
+                raise
+    #creating a recipe file
+    file_name = recipe_name + str(duplicated_recipe_id) +".xml"
+    #print(path)
+    recipe_file = open(path + "/" + recipe_name + ".xml", "w+")
+    #writing the recipe into the file
+    #TODO: Fix this too
+    #Write recipe properties
+    recipe_file.write("<title>"+request.form['recipeName']+"</title>\n")
+    recipe_file.write("\n")
+    recipe_file.write("<time_min>" + recipe_time + "</time_min>\n")
+    recipe_file.write("<servings>" + recipe_serving_num + "</servings>\n")
+    recipe_file.write("<source>" + recipe_source + "</source>\n")
+    #Write recipe tags
+    recipe_file.write("<tags>\n")
+    #TODO: Add choice from existing tags
+    for tag in recipe_tags:
+        recipe_file.write("\t<tag>" + tag + "</tag>\n")
+    recipe_file.write("</tags>\n\n")
+
+    #Write recipe ingredients
+    #TODO: Add possibility of multiple named ingredient lists
+    recipe_file.write("<ingredients_list>\n")
+
+    recipe_file.write("<list_title></list_title>\n")
+    for ingredient in ingredient_list:
+        recipe_file.write("\t<ingredient>\n")
+        #TODO: Do this for general number of ingredient properties instead of 0, 1, 2...
+        recipe_file.write("\t\t<name>" + ingredient[0] + "</name>\n")
+        recipe_file.write("\t\t<amount>" + ingredient[1] + "</amount>\n")
+        recipe_file.write("\t\t<unit>" + ingredient[2] + "</unit>\n")
+        recipe_file.write("\t\t<note>""</note>\n")
+
+        recipe_file.write("\t</ingredient>\n")
+    recipe_file.write("</ingredients_list>\n")
+    recipe_file.write("\n")
+
+    #Write directions
+    recipe_file.write("<directions>\n")
+    for step in steps:
+        recipe_file.write("\t<step>" + step + "</step>\n")
+
+    recipe_file.write("</directions>\n")
+
+
+    #TODO: Do a recipe part (ingredients + directions) insted of multiple ingredient lists?
+
+    print("Adding a new recipe")
+    return "Good boye!"
