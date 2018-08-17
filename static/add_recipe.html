@@ -23,31 +23,62 @@
 
     <div class="section">
         <h1>Add a new recipe</h1>
-    </div>
-
-
-    <input type='button' value='Add ingredient' id='addIngredientButton'>
-    <input type='button' value='Remove ingredient' id='removeIngredientButton'>
-
-    <div id='TextBoxesIngredientGroup'>
-    	<div id="TextBoxIngredientDiv1">
-           <label>Ingredient #1 : </label><input type="textbox" name="ingredient' + counterIngredient + '" id="ingredient1" value="" >
-          <label>Amount : </label><input type="text" name="amount' + counterIngredient + '" id="amount1" value="" >
-           <label>Unit : </label><input type="text" name="unit' + counterIngredient + '" id="unit1" value="" >
-       </div>
-    </div>
-
-    <input type='button' value='Add new step' id='addInstructionButton'>
-    <input type='button' value='Remove step' id='removeInstructionButton'>
-
-    <div id='TextBoxesGroupInstruction'>
-    	<div id="TextBoxDivInstruction1">
-
-            <label>Step #1 : </label><input type="textbox" name="step' + counterInstruction + '" id="step1" value="" >
+        <!--Some browsers might not support event.preventDefault();-->
+        <form id="newRecipe" onsubmit="event.preventDefault(); sendData();">
+      <div id='TextBoxRecipeName'>
+        <div id="TextBoxRecipeDiv1">
+          <label>Recipe Name: </label><input type="text" name = "recipeName">
         </div>
+      </div>
+
+      <div id='TextBoxRecipeTime'>
+        <div id="TextBoxTimeDiv1">
+          <label>Time required (minutes): </label><input type="number" name = "recipeTime">
+        </div>
+      </div>
+
+      <div id='NumberOfServings'>
+        <div id="NumberOfServingsDiv1">
+          <label>Number of servings: </label><input type="number" name = "servingsNumber">
+        </div>
+      </div>
+
+      <div id='recipeSource'>
+        <div id="recipeSourceDiv1">
+          <label>Source: </label><input type="text" name = "recipeSource">
+        </div>
+      </div>
+
+      <div id='recipeTags'>
+        <div id="recipeTagsDiv1">
+          <label>Tags (separated with commas): </label><input type="text" name = "recipeTags">
+        </div>
+      </div>
+
+      <input type='button' value='Add ingredient' id='addIngredientButton'>
+      <input type='button' value='Remove ingredient' id='removeIngredientButton'>
+
+      <div id='TextBoxesIngredientGroup'>
+      	<div id="TextBoxIngredientDiv1">
+          <!--there is a textbox type too, it was used in Ingredient and step before-->
+          <!--Put it into divs if you want different size of text fields on different places or if you want to align it-->
+             <label>Ingredient #1 : </label><input type="text" name="ingredient1" id="ingredient1" value="" >
+            <label>Amount : </label><input type="textbox" name="amount1" id="amount1" value="" >
+             <label>Unit : </label><input type="textbox" name="unit1" id="unit1" value="" >
+         </div>
+      </div>
+
+      <input type='button' value='Add new step' id='addInstructionButton'>
+      <input type='button' value='Remove step' id='removeInstructionButton'>
+
+      <div id='TextBoxesGroupInstruction'>
+      	<div id="TextBoxDivInstruction1">
+
+              <label>Step #1 : </label><input type="text" name="step1" id="step1" value="" >
+          </div>
+      </div>
+      <button type="submit" form="newRecipe" value="Submit">Submit</button>
+    </form>
     </div>
-
-    <input type='button' value='Sumbit Recipe' id='submitRecipe'>
-
 </body>
 </html>
