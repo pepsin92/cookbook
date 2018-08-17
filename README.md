@@ -9,5 +9,6 @@ pip install -r requirements.txt
 
 To run the web server:
 ```bash
-python manage.py run
+python manage.py run 
+# alternatively python manage.py runserver
 ```
