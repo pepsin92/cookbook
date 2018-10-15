@@ -1,0 +1,23 @@
+<unit>
+	<unit_name>template</unit_name>
+	<volume_per_g>1</volume_per_g>
+	<unit_synonyms>
+		<synonym>tmp</synonym>
+	</unit_synonyms>
+</unit>
+<unit>
+	<unit_name>tablespoon</unit_name>
+	<volume_per_gg>NA</volume_per_g>
+	<unit_synonyms>
+		<synonym>tsp</synonym>
+		<synonym>tsp.</synonym>
+	</unit_synonyms>
+</unit>
+<unit>
+	<unit_name>tablespoon</unit_name>
+	<volume_per_g>NA</volume_per_g>
+	<unit_synonyms>
+		<synonym>tsp</synonym>
+		<synonym>tsp.</synonym>
+	</unit_synonyms>
+</unit>

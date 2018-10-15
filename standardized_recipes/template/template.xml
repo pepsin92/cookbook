@@ -1,0 +1,21 @@
+<title></title>
+<time_min></time_min>
+<servings></servings>
+<source></source>
+<tags>
+	<tag></tag>
+</tags>
+
+<ingredients_list>
+<list_title></list_title>
+	<ingredient>
+		<name></name>
+		<amount></amount>
+		<unit></unit>
+		<note></note>
+	</ingredient>
+</ingredients_list>
+
+<directions>
+	<step></step>
+</directions>
