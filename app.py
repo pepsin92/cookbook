@@ -9,7 +9,7 @@ import errno
 def connect_db():
     return sqlite3.connect('recipes.db')
 
-
+#OLD
 def get_recipe_by_id(rid):
     cur = g.db.cursor()
     cur.execute('SELECT name FROM recipe WHERE id=?', [rid])
@@ -27,13 +27,28 @@ def get_recipe_by_id(rid):
     res['tags'] = [{'name': x[0]} for x in cur.fetchall()]
     return res
 
+#NEW
+def get_recipe_by_name(recipe_name):
+	path = "standardized_recipes/" + recipe_name
+	recipe_file = open(path + "/" + recipe_name + ".xml", "w+")
+	print(recipe_file)
+	#TODO get recipe from xml
+	res = {'name': }
+	
 
+#OLD
 def get_tags(rid):
     cur = g.db.cursor()
     cur.execute('SELECT name FROM tag WHERE parent = ?', [rid])
     return [x[0] for x in cur.fetchall()]
+#NEW
+def get_tags(name):
+	path = "standardized_recipes/" + recipe_name
+	recipe_file = open(path + "/" + recipe_name + ".xml", "w+")
+	#TODO get tags from xml
 
 
+#OLD
 def get_recipes(tag = None):
     cur = g.db.cursor()
     if tag is not None:
@@ -49,7 +64,17 @@ def get_recipes(tag = None):
         res.append(d)
     return res
 
+#NEW
+def get_recipes(tag = None):
+	res = []
+	if tag is None:
+		res = ls standardized_recipes/
+	else:
+		#get a list of recipes
+		#return those that have matching tag in db
+	return res
 
+#OLD
 def add_tag(rid, tag):
     cur = g.db.cursor()
     cur.execute('SELECT id FROM tag WHERE parent=?', [rid])
@@ -62,6 +87,12 @@ def add_tag(rid, tag):
 
     g.db.commit()
 
+#NEW
+def add_tag(name, tag)
+	#Add it into xml file
+	#Change it in the database
+
+#TODO Also do removing tags
 
 @app.before_request
 def before_request():
